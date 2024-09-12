@@ -78,6 +78,15 @@ class Singers{
         this.ID = ID;
     }
 
+    public void setAllValues(int id, String name, String address, LocalDate date, int albums ){
+
+        this.ID = id;
+        this.name = name;
+        this.address = address;
+        this.dob = date;
+        this.numAlbums = albums;
+    }
+
 
 
     public Singers()
