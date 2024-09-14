@@ -5,7 +5,7 @@
 
 import java.time.LocalDate;
 
-public class SauravChaudhary_COMP228Lab2 {
+public class SauravChaudhary_COMP228Lab1 {
     public static void main(String[] args) {
 Singers singer1 = new Singers();
 System.out.println("Singer ID: " + singer1.getID() + "\n" +
