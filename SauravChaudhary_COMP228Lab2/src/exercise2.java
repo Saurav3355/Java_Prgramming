@@ -3,25 +3,21 @@ import java.util.Scanner;
 
 public class exercise2 {
 
-    // Lotto class to generate random numbers and calculate the sum
     public static class Lotto {
         private int[] numbers;
 
-        // Constructor that populates the array with random integers from 1 to 9
         public Lotto() {
             numbers = new int[3];
             Random rand = new Random();
             for (int i = 0; i < numbers.length; i++) {
-                numbers[i] = rand.nextInt(9) + 1; // Generates numbers between 1 and 9
+                numbers[i] = rand.nextInt(9) + 1;
             }
         }
 
-        // Method to return the array of numbers
         public int[] getNumbers() {
             return numbers;
         }
 
-        // Method to calculate the sum of the numbers
         public int getSum() {
             int sum = 0;
             for (int number : numbers) {
@@ -47,14 +43,14 @@ public class exercise2 {
         boolean hasWon = false;
 
         for (int i = 1; i <= 5; i++) {
-            lotto = new Lotto(); // Create a new lotto instance
-            int sum = lotto.getSum(); // Get the sum of the lotto numbers
+            lotto = new Lotto();
+            int sum = lotto.getSum();
             System.out.println("Roll " + i + ": The sum of the lotto numbers is " + sum);
 
             if (sum == userNumber) {
                 System.out.println("Congratulations! You've won!");
                 hasWon = true;
-                break; // End the game if the user wins
+                break;
             }
         }
 
@@ -62,6 +58,6 @@ public class exercise2 {
             System.out.println("Sorry! The computer wins. Better luck next time!");
         }
 
-        scanner.close(); // Close the scanner to free up resources
+        scanner.close();
     }
 }
