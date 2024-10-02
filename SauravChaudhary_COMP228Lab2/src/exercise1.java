@@ -3,8 +3,8 @@ import java.util.Random;
 
 public class exercise1 {
     public static void main(String[] args) {
-        Test test = new Test();  // Create an instance of Test
-        test.inputAnswer();  // Start the test
+        Test test = new Test();
+        test.inputAnswer();
     }
 }
 
@@ -27,23 +27,22 @@ class Test {
             {"const", "static", "var", "final"}
     };
 
-    private final int[] correctAnswersIndices = {1, 2, 1, 0, 1}; // Indices of correct answers
+    private final int[] correctAnswersIndices = {1, 2, 1, 0, 1};
 
     public void inputAnswer() {
-        Scanner scanner = new Scanner(System.in); // Create a scanner to read input
+        Scanner scanner = new Scanner(System.in);
         for (int i = 0; i < questions.length; i++) {
-            boolean validAnswer = false; // Flag to check if the answer is valid
-            while (!validAnswer) { // Loop until a valid answer is provided
+            boolean validAnswer = false;
+            while (!validAnswer) {
                 simulateQuestion(i, scanner);
-                validAnswer = checkUserAnswer(scanner, i); // Validate the answer
+                validAnswer = checkUserAnswer(scanner, i);
             }
         }
         displayResults();
-        scanner.close(); // Close the scanner
+        scanner.close();
     }
 
     public void simulateQuestion(int questionIndex, Scanner scanner) {
-        // Format the options for display
         System.out.println(questions[questionIndex]);
         char optionLabel = 'a';
         for (String option : options[questionIndex]) {
@@ -54,14 +53,14 @@ class Test {
     }
 
     public boolean checkUserAnswer(Scanner scanner, int questionIndex) {
-        String userAnswer = scanner.nextLine().toLowerCase(); // Read user input
+        String userAnswer = scanner.nextLine().toLowerCase();
         if (userAnswer.length() == 1 && userAnswer.charAt(0) >= 'a' && userAnswer.charAt(0) < 'a' + options[questionIndex].length) {
-            int answerIndex = userAnswer.charAt(0) - 'a'; // Convert 'a' to index 0, 'b' to index 1, etc.
-            checkAnswer(answerIndex, questionIndex); // Check the answer
-            return true; // Valid answer provided
+            int answerIndex = userAnswer.charAt(0) - 'a';
+            checkAnswer(answerIndex, questionIndex);
+            return true;
         } else {
             System.out.println("Invalid answer. Please try again.");
-            return false; // Invalid answer
+            return false;
         }
     }
 
@@ -77,7 +76,7 @@ class Test {
 
     public String generateMessage(boolean isCorrect) {
         Random randomObject = new Random();
-        int messageIndex = randomObject.nextInt(4); // Generates a random number between 0 and 3
+        int messageIndex = randomObject.nextInt(4);
 
         String[] correctMessages = {
                 "Excellent!", "Good!", "Keep up the good work!", "Nice work!"
@@ -96,6 +95,6 @@ class Test {
         System.out.println("Test completed!");
         System.out.println("Correct Answers: " + correctAnswers);
         System.out.println("Incorrect Answers: " + incorrectAnswers);
-        System.out.printf("Percentage: %.2f%%\n", percentageCorrect); // Formatting to 2 decimal places
+        System.out.printf("Percentage: %.2f%%\n", percentageCorrect);
     }
 }
